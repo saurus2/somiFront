@@ -8,6 +8,9 @@ import Home from './Pages/Home';
 import React from 'react';
 import Start from './Pages/Start';
 import Register from './Pages/Register';
+import RestAPI from './RestAPI';
+
+
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
       <Route path="/login" element={<LogIn />}></Route>
       <Route path="/register" element={<Register />}></Route>
       <Route path="/home" element={<Home />}></Route>
+      <Route path="/restapi" element={<RestAPI />}></Route>
+
+
     </Routes>
   </BrowserRouter>
   );

@@ -1,66 +1,54 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./RestAPI.css";
+import refresh from './img/refresh.jpg';
 
 function RestAPI() {
     const [text, setText] = useState([]);
 
     return (
         <>
-            <h1>REST API 연습</h1>
-            <div className="btn-primary">
-                <button
-                    onClick={() => {
-                        axios
-                            .post("http://127.0.0.1:8000/review/", {
-                                title: "title",
-                                content: "content",
-                            })
-                            .then(function (response) {
-                                console.log(response);
-                            })
-                            .then(function (error) {
-                                console.log(error);
-                            })
-                    }}
-                    >
-                    POST
-                </button>
-                <button
-                    onClick={() => {
-                        axios
-                        .get("http://127.0.0.1:8000/review/")
-                        .then((response) => {
-                            setText([...response.data]);
-                            console.log(response.data);
-                        })
-                        .catch(function (error){
-                            console.log(error);
-                        })
-                    }}
-                    >
-                    GET
-                </button>
+
+            <div id="title">
+                <h1>NOW Trends</h1>
             </div>
-            {text.map((e) => (
-                <div>
-                    {" "}
-                    <div className="list">
-                        <span>
-                            {e.id}번, {e.title}, {e.content}, {e.update_at}
-                        </span>
-                        <button
-                            className="btn-delete"
+
+            <div id="btn">
+                <div className="btn-primary">
+                    <button
                             onClick={() => {
-                                axios.delete(`http://127.0.0.1:8000/review/${e.id}`);
-                                setText(text.filter((text) => text.id !== e.id));
+                                axios
+                                    .get("http://127.0.0.1:8000/items/list/")
+                                    .then((response) => {
+                                        setText([...response.data]);
+                                        console.log(response.data);
+                                    })
+                                    .catch(function (error){
+                                        console.log(error);
+                                    })
                             }}
-                        >
-                            DELETE
-                        </button>{" "}
-                    </div>
+
+                    >
+                        <img id='rbtn' src={refresh} alt="" border="0" />
+
+                    </button>
+
                 </div>
-            ))}
+            </div>
+
+
+
+            <div id="list">
+                {text.map((e) => (
+                    <div id="item">
+                        <div>ID: {e.id}</div>
+                        <div>Name: {e.name}</div>
+                        <div>Size: {e.size}</div>
+                        <div>Price: {e.price}</div>
+                        <div>Picture: {e.img}</div>
+                    </div>
+))}
+            </div>
         </>
     );
 }
