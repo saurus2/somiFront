@@ -13,35 +13,21 @@ function RestAPI() {
     return (
         <>
             <img src={img1} alt=""/>
-            <img src={img2} alt=""/>
+            <img src={img2} alt=""
+                 onClick={() => {
+                     axios
+                         .get("http://127.0.0.1:8000/items/list/")
+                         .then((response) => {
+                             setText([...response.data]);
+                             console.log(response.data);
+                         })
+                         .catch(function (error){
+                             console.log(error);
+                         })
+                 }}
+            />
             <img src={img3} alt=""/>
             <img src={img4} alt=""/>
-            <img src={img5} alt=""/>
-            
-
-            <div id="btn">
-                <div className="btn-primary">
-                    <button
-                            onClick={() => {
-                                axios
-                                    .get("http://127.0.0.1:8000/items/list/")
-                                    .then((response) => {
-                                        setText([...response.data]);
-                                        console.log(response.data);
-                                    })
-                                    .catch(function (error){
-                                        console.log(error);
-                                    })
-                            }}
-
-                    >
-
-                    </button>
-
-                </div>
-            </div>
-
-
 
             <div id="list">
                 {text.map((e) => (
@@ -52,8 +38,18 @@ function RestAPI() {
                         <div>Price: {e.price}</div>
                         <div>Picture: {e.img}</div>
                     </div>
-))}
+                ))}
             </div>
+            <img src={img5} alt=""/>
+
+
+
+
+
+
+
+
+
         </>
     );
 }
