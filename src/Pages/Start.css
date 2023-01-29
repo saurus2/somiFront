@@ -1,0 +1,35 @@
+div {
+  text-align: center;
+}
+
+img {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+#loginbtn {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #B98161;
+  color: #B98161;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+  margin-right: 10px;
+}
+
+#registerbtn {
+  border: 0;
+  background-color: #B98161;
+  color:white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 10px;
+}
