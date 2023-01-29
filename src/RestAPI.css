@@ -11,6 +11,11 @@
     margin-right: 10px;
 }
 
+img {
+    height: 100%;
+    width: auto;
+}
+
 /*#btn {*/
 /*    float: top;*/
 /*    margin-top: 20px;*/
